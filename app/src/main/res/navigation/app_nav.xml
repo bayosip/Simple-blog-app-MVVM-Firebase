@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.osicorp.carbon_test_app.view.fragments.ListFragment"
+        android:label="Post List"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.osicorp.carbon_test_app.view.fragments.DetailsFragment"
+        android:label="Full Post"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="postId"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.osicorp.carbon_test_app.view.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+</navigation>
